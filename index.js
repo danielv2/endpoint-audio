@@ -16,4 +16,4 @@ app.get('/', function(req, res){
     // We replaced all the event handlers with a simple call to readStream.pipe()
     readStream.pipe(res);
 });
-app.listen(18320);
+app.listen(process.env.PORT || 3000);
