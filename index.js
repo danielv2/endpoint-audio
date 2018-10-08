@@ -15,4 +15,3 @@ http.createServer(function(request, response) {
     // We replaced all the event handlers with a simple call to readStream.pipe()
     readStream.pipe(response);
 })
-.listen(5000);
