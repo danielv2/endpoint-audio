@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/danielv2/endpoint-audio/issues"
   },
-  "homepage": "https://github.com/danielv2/endpoint-audio#readme"
+  "homepage": "https://github.com/danielv2/endpoint-audio#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
 }
