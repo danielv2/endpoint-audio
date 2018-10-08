@@ -1,18 +1,25 @@
-var http = require('http'),
-    fileSystem = require('fs'),
-    path = require('path');
-
-http.createServer(function(request, response) {
-    var filePath = path.join(__dirname, 'myfile.mp3');
-    var stat = fileSystem.statSync(filePath);
-
-    response.writeHead(200, {
-        'Content-Type': 'audio/mpeg',
-        'Content-Length': stat.size
+// using the http module
+let http = require('http'),
+ 
+// look for PORT environment variable, 
+// else look for CLI argument,
+// else use hard coded value for port 8080
+port = process.env.PORT || process.argv[2] || 8080;
+ 
+// create a simple server
+let server = http.createServer(function (req, res) {
+ 
+        res.writeHead(200, {
+            'Content-Type': 'text/plain'
+        });
+        res.write('hello heroku!', 'utf-8');
+        res.end();
+ 
     });
-
-    var readStream = fileSystem.createReadStream(filePath);
-    // We replaced all the event handlers with a simple call to readStream.pipe()
-    readStream.pipe(response);
-})
-.listen(8080);
+ 
+// listen on the port
+server.listen(port, function () {
+ 
+    console.log('app up on port: ' + port);
+ 
+});
