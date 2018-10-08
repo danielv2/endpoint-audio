@@ -3,7 +3,7 @@ app = express();
     fileSystem = require('fs'),
     path = require('path');
 
-app.get('/', function(req, res){
+app.get('/audio', function(req, res){
   var filePath = path.join(__dirname, 'myfile.mp3');
     var stat = fileSystem.statSync(filePath);
 
